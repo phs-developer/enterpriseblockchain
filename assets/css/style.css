@@ -57,7 +57,6 @@ ul {
 }
 
 body {
-  width: 1280px;
   min-width: 1280px;
   font-family: "Archivo", "Noto Sans KR", sans-serif;
   word-break: keep-all;
@@ -1302,6 +1301,9 @@ body.dark {
   opacity: 0;
 }
 
+.sc-market {
+  overflow: hidden;
+}
 .sc-market .group-move {
   background-image: url("../images/prove2.jpg");
 }
