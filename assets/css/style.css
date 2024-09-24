@@ -57,6 +57,8 @@ ul {
 }
 
 body {
+  width: 1280px;
+  min-width: 1280px;
   font-family: "Archivo", "Noto Sans KR", sans-serif;
   word-break: keep-all;
   overflow-x: hidden;
@@ -870,12 +872,18 @@ body.dark {
 }
 .sc-role .content2 .line-wrap div.line1 {
   background: #e657af;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 .sc-role .content2 .line-wrap div.line2 {
   background: #0049ff;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 .sc-role .content2 .line-wrap div.line3 {
   background: #00bf41;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
 }
 .sc-role .content2 .title {
   position: absolute;
@@ -888,6 +896,7 @@ body.dark {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 10;
+  opacity: 0;
 }
 .sc-role .content2::after {
   content: "";
@@ -916,13 +925,16 @@ body.dark {
   top: 0;
   left: 0;
   height: 100vh;
+  overflow: hidden;
+}
+.sc-service .sticky1-wrap .content1 .inner1 {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
+  height: 100%;
 }
 .sc-service .sticky1-wrap .content1 .group-title {
   padding-right: 160px;
@@ -1037,10 +1049,8 @@ body.dark {
   opacity: 0;
 }
 .sc-service .content2 .right {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   padding: 100vh 0;
+  overflow: hidden;
 }
 .sc-service .content2 .right .group-contents {
   padding-left: 13.5417vw;
@@ -1309,10 +1319,8 @@ body.dark {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
   height: 100vh;
+  overflow: hidden;
 }
 .sc-future .inner1 {
   display: -webkit-box;
@@ -1321,9 +1329,14 @@ body.dark {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .sc-future .inner1 .group-title .title {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   padding-right: 160px;
 }
 .sc-future .inner1 .group-slide .card-item .head {
@@ -1411,7 +1424,7 @@ body.dark {
   left: 0;
   bottom: 0;
   padding: 10px 0 6.5vh;
-  width: 100vw;
+  width: 100%;
   opacity: 0;
   z-index: 10;
   -webkit-transition: opacity 0.3s;
@@ -1571,6 +1584,9 @@ body.dark {
   left: 0;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+}
+.sc-creator .content2 .inner2 {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;

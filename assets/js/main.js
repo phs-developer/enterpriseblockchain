@@ -29,7 +29,6 @@ $(function () {
     });
 
     $(".btn-select").click(function () {
-        console.log("dd");
         $(".lang-list").toggleClass("on");
     });
 
@@ -79,6 +78,7 @@ $(function () {
             start: "0% 0%",
             end: "100% 100%",
             scrub: 0,
+            invalidateOnRefresh: true,
         },
     });
     identityTl
@@ -112,6 +112,7 @@ $(function () {
             start: `0% 100%-=218px`,
             end: "100% 100%",
             scrub: 0,
+            invalidateOnRefresh: true,
         },
     });
     userMoveTl
@@ -152,14 +153,22 @@ $(function () {
             start: "0% 0%",
             end: "100% 30%",
             scrub: 0,
+            invalidateOnRefresh: true,
         },
     });
     roleLine
-        .from(".sc-role .content2 .line1", { xPercent: -50 }, "transX")
-        .from(".sc-role .content2 .line2", { xPercent: -50 }, "transX")
-        .from(".sc-role .content2 .line3", { xPercent: 50 }, "transX")
-        .set(".sc-role .content2", { "--opacity": "1", delay: 1 })
-        .from(".sc-role .content2 .title", { opacity: 0 });
+        .to(".sc-role .content2 .line1", { xPercent: 0 }, "transX")
+        .to(".sc-role .content2 .line2", { xPercent: 0 }, "transX")
+        .to(".sc-role .content2 .line3", { x: 0 }, "transX")
+        .to(".sc-role .content2 .title", {
+            opacity: 1,
+            onStart: function () {
+                return gsap.to(".sc-role .content2", { "--opacity": "1" });
+            },
+            onReverseComplete: function () {
+                return gsap.to(".sc-role .content2", { "--opacity": "0" });
+            },
+        });
 
     // sc-service
     const serviceSlideItem = $(".sc-service .card-item");
@@ -185,7 +194,7 @@ $(function () {
     });
 
     service1Tl1
-        .to(".sc-service .content1", {
+        .to(".sc-service .content1 .inner1", {
             x: function () {
                 return $(".sc-service .content1 .group-title").innerWidth() * -1;
             },
@@ -218,6 +227,7 @@ $(function () {
         start: "0% 0%",
         end: "100% 100%",
         scrub: 0,
+        invalidateOnRefresh: true,
         onUpdate: function (self) {
             gsap.set(".sc-service .content2 .card-text .text", {
                 opacity: self.progress * 2,
@@ -273,6 +283,7 @@ $(function () {
             start: `0% 70%`,
             end: "100% 80%",
             scrub: 0,
+            invalidateOnRefresh: true,
         },
     });
     marketMoveTl
@@ -361,6 +372,7 @@ $(function () {
         trigger: "#footer",
         start: "100% 100%",
         end: "100% 100%",
+        invalidateOnRefresh: true,
         onEnter: function () {
             gsap.set(".marquee", { yPercent: -100 });
         },
